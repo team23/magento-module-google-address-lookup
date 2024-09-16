@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="self-script" type="host">'self'</value>
+                <value id="google-apis-script" type="host">*.googleapis.com</value>
+                <value id="gstatic-script" type="host">*.gstatic.com</value>
+                <value id="google-script" type="host">*.google.com</value>
+                <value id="ggpht-script" type="host">*.ggpht.com</value>
+                <value id="google-user-content-script" type="host">*.googleusercontent.com</value>
+                <value id="blob-script" type="host">blob:</value>
+            </values>
+        </policy>
+
+        <policy id="img-src">
+            <values>
+                <value id="self-img" type="host">'self'</value>
+                <value id="google-apis-img" type="host">*.googleapis.com</value>
+                <value id="gstatic-img" type="host">*.gstatic.com</value>
+                <value id="google-img" type="host">*.google.com</value>
+                <value id="google-user-content-img" type="host">*.googleusercontent.com</value>
+                <value id="data-img" type="host">data:</value>
+            </values>
+        </policy>
+
+        <policy id="frame-src">
+            <values>
+                <value id="google-frame" type="host">*.google.com</value>
+            </values>
+        </policy>
+
+        <policy id="connect-src">
+            <values>
+                <value id="self-connect" type="host">'self'</value>
+                <value id="google-apis-connect" type="host">*.googleapis.com</value>
+                <value id="google-connect" type="host">*.google.com</value>
+                <value id="gstatic-connect" type="host">*.gstatic.com</value>
+                <value id="data-connect" type="host">data:</value>
+                <value id="blob-connect" type="host">blob:</value>
+            </values>
+        </policy>
+
+        <policy id="font-src">
+            <values>
+                <value id="gstatic-fonts" type="host">https://fonts.gstatic.com</value>
+            </values>
+        </policy>
+
+        <policy id="style-src">
+            <values>
+                <value id="self-style" type="host">'self'</value>
+                <value id="unsafe-inline-style" type="host">'unsafe-inline'</value>
+                <value id="google-apis-style" type="host">https://fonts.googleapis.com</value>
+            </values>
+        </policy>
+
+        <policy id="worker-src">
+            <values>
+                <value id="blob-worker" type="host">blob:</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

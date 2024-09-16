@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="google.address.lookup.checkout.cart"
+                   template="Team23_GoogleAddressLookup::checkout/google-address-lookup.phtml">
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">Team23\GoogleAddressLookup\ViewModel\GoogleAddressLookup</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="checkout.cart.shipping">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-summary" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="block-shipping" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="address-fieldsets" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="lookup" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Team23_GoogleAddressLookup/js/form/element/lookup</item>
+                                                    <item name="dataScope" xsi:type="string">shippingAddress.lookup</item>
+                                                    <item name="sortOrder" xsi:type="string">900</item>
+                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                    <item name="visible" xsi:type="boolean">false</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                        <item name="elementTmpl" xsi:type="string">Team23_GoogleAddressLookup/form/element/input</item>
+                                                        <item name="customEntry" xsi:type="string">shippingAddress.region</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

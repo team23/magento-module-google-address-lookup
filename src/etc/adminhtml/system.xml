@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="google_address_lookup"
+                 translate="label"
+                 sortOrder="10"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Google Address Lookup</label>
+            <tab>team23</tab>
+            <resource>Team23_GoogleAddressLookup::config</resource>
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="1"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Configuration</label>
+
+                <field id="active"
+                       translate="label"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="api_key"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Google API Key</label>
+                    <comment><![CDATA[For more details please read <a href="https://developers.google.com/maps/documentation/javascript/places-autocomplete" target="_blank" alt="Autocomplete Documentation">Google Documentation</a>]]></comment>
+                    <validate>require-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+
+                <field id="restricted_countries"
+                       translate="label comment"
+                       type="multiselect"
+                       sortOrder="3"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Restrict Address Lookup to Specific Countries</label>
+                    <comment><![CDATA[For more details please read <a href="https://developers.google.com/maps/documentation/javascript/place-autocomplete?hl=de#restrict-predictions-to-a-specific-country" target="_blank" alt="Restrict Predictions to Specific Countries">Google Documentation</a>]]></comment>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

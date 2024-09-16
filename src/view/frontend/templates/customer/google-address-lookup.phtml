@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Team23\GoogleAddressLookup\ViewModel\GoogleAddressLookup $viewModel
+ */
+
+$viewModel = $block->getViewModel();
+?>
+
+<input type="hidden"
+       id="google-address-lookup-active"
+       value="<?= $escaper->escapeHtmlAttr($viewModel->isEnabled()); ?>"/>
+
+<input type="hidden"
+       id="google-address-lookup-api-key"
+       value="<?= $escaper->escapeHtmlAttr($viewModel->getApiKey()); ?>"/>
+
+<input type="hidden"
+       id="google-address-lookup-restricted-countries"
+       value="<?= $escaper->escapeHtmlAttr($viewModel->getRestrictedCountries()); ?>"/>
+
+<script type="text/x-magento-init">
+    {
+        "#street_1": {
+            "Team23_GoogleAddressLookup/js/maps/autocomplete": {
+                "restrictedCountries": "<?= $escaper->escapeJs($viewModel->getRestrictedCountries()); ?>"
+            }
+        }
+    }
+</script>
